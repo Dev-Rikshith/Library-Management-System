@@ -15,7 +15,7 @@ public class StudentManagement {
             studentsToAdd[i] = new StudentDetails(scanner.nextInt(), scanner.nextLine(), scanner.nextLine());
         }
         scanner.close();
-        addToSystem(StudentDetails[]studentsToAdd);
+        addToSystem(studentsToAdd);
     }
 
     public void addToSystem(StudentDetails[] arrayToAdd) {
@@ -40,12 +40,13 @@ public class StudentManagement {
         ArrayList<StudentDetails> removedStudents = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int numberOfStudentsToRemove = scanner.nextInt();
-        List<StudentDetails> listOfStudents= Arrays.asList(totalStudents.clone());
-        for(int i; i<= numberOfStudentsToRemove; i++){
+        List<StudentDetails> listOfStudents = Arrays.asList(totalStudents.clone());
+        for (int i = 0; i <= numberOfStudentsToRemove; i++) {
             System.out.println("Enter the student id to remove");
             int id = scanner.nextInt();
-            outer : for(StudentDetails studentDetails : listOfStudents){
-                if(id == studentDetails.id){
+            outer:
+            for (StudentDetails studentDetails : listOfStudents) {
+                if (id == studentDetails.id) {
                     break outer;
                 }
                 index++;
@@ -55,7 +56,7 @@ public class StudentManagement {
         }
         for (int i = 0; i < totalStudents.length; i++) {
             ListIterator<StudentDetails> listIterator = listOfStudents.listIterator();
-            while(listIterator.hasNext()){
+            while (listIterator.hasNext()) {
                 totalStudents[i] = listIterator.next();
             }
             break;
@@ -63,7 +64,6 @@ public class StudentManagement {
         return removedStudents;
     }
 
-    
 
     public int totalNumberOfStudents() {
         return totalStudents.length;
