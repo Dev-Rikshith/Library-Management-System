@@ -1,4 +1,11 @@
 package com.commandline.studentmangement;
+/**
+ * @author Tirumanpuri Rikshith
+ * This class basically wraps all the student details into a object
+ * and then initializes them with a constructor and then setup getters and setters
+ * for editing the private instance variables and prints the details of the student
+ * to the screen or to a file using the toString method
+ */
 
 import com.commandline.bookmanagement.Book;
 
@@ -71,7 +78,8 @@ public class StudentDetails {
 
     public void getReport(StudentDetails studentDetails) throws IOException {
         String reportToGet = studentDetails.getFullName();
-        FileWriter fileWriter = new FileWriter(reportToGet);
+        FileWriter fileWriter = new FileWriter(reportToGet); //Initializes the object with the name
+        //writes all the student details to the file created
         fileWriter.write(studentDetails.toString());
         int pos = 0;
         fileWriter.write("The student has the following outstanding requests :");
