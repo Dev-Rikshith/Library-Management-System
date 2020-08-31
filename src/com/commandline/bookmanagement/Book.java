@@ -54,8 +54,6 @@ public class Book {
     }
 
 
-    
-
     public void setBookCount(int bookCount) {
         this.bookCount = bookCount;
     }
