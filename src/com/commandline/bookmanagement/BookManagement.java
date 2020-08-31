@@ -1,14 +1,16 @@
 package com.commandline.bookmanagement;
+/**
+ * @author Anisha Shendkar
+ * This class basically implements all the book methods
+ * and then processes them to add, delete, retrieve, totalbooks and then
+ * returns or prints them to the screen
+ */
 
-import com.commandline.studentmangement.StudentDetails;
 //import jdk.internal.util.xml.impl.Pair;
-import org.w3c.dom.ls.LSOutput;
 
-import javax.crypto.spec.PSource;
-import java.lang.reflect.Array;
 import java.util.*;
 
-public class BookMangement {
+public class BookManagement {
     private Book[] totalBooks = new Book[100];
     private int numberOfBookToAdd = 0;
     private int totalBookPresent = 0;
@@ -98,35 +100,44 @@ public class BookMangement {
         return removedBook;
     }
 
-    public StudentDetails getstudents() {
+    public Book getBook() {
         int index = -1;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the student id to remove");
+        System.out.println("Enter the Book id to remove");
         int idToSearch = scanner.nextInt();
-        List<StudentDetails> listOfStudents = Arrays.asList(totalStudents.clone());
+        List<Book> listOfBooks = Arrays.asList(totalBooks.clone());
         outer:
-        for (StudentDetails studentDetails : listOfStudents) {
-            if (idToSearch == studentDetails.id) {
+        for (Book book : listOfBooks) {
+            if (idToSearch == book.id) {
                 break outer;
             }
             index++;
         }
         //converts the list to array and then assigns it to the main array
-        for (int i = 0; i < totalStudents.length; i++) {
-            ListIterator<StudentDetails> listIterator = listOfStudents.listIterator();
+        for (int i = 0; i < totalBooks.length; i++) {
+            ListIterator<Book> listIterator = listOfBooks.listIterator();
             while (listIterator.hasNext()) {
-                totalStudents[i] = listIterator.next();
+                totalBooks[i] = listIterator.next();
             }
 
             break;
         }
         scanner.close();
-        return listOfStudents.get(index);
+        return listOfBooks.get(index);
     }
 
-    public int totalNumberOfStudents() {
+    public int totalNumberOfBooks(){
         return totalBooks.length;
     }
+        public void displayAllStudents(){
+            for (int i = 0; i < totalBooks.length; i++) {
+                if(totalBooks[i] == null){
+                    System.out.println("Slot Empty");
+                }else{
+                    System.out.println(totalBooks[i]);
+                }
+            }
+        }
 
 }
 
