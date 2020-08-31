@@ -7,15 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StudentManagement studentManagement = new StudentManagement();
-        studentManagement.addStudents();
-//        StudentDetails studentDetails = studentManagement.removeStudents();
-//        System.out.println(studentDetails);
-//       studentManagement.displayAllStudents();
-        System.out.println(studentManagement.totalNumberOfStudents());
-//
+//        StudentManagement studentManagement = new StudentManagement();
 //        studentManagement.addStudents();
+//        studentManagement.removeStudents();
 //        studentManagement.displayAllStudents();
 //        studentManagement.getstudents();
+
+        StudentDetails studentDetails = new StudentDetails(1,"sohan", "cse");
+  //      studentDetails.getReport(studentDetails);
     }
 }

@@ -61,18 +61,14 @@ public class StudentDetails {
     }
 
     public void getDetails(StudentDetails studentDetails) {
-        studentDetails.toString();
-        int pos = 0;
+        System.out.println(studentDetails.toString());
         System.out.println("The student has the following outstanding requests :");
         for (Book book : requestedBooks) {
-            pos++;
-            System.out.println(pos + " . " + book);
+            System.out.println(book);
         }
-        pos = 0;
         System.out.println("The student has the following outstanding issues :");
         for (Book book : issuedBooks) {
-            pos++;
-            System.out.println(pos + " . " + book);
+            System.out.println(book);
         }
     }
 
