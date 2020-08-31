@@ -8,7 +8,9 @@ import com.commandline.studentmangement.StudentManagement;
 public class Main {
 
     public static void main(String[] args) {
+        class ComplaintBox{
 
+<<<<<<< HEAD
         FacultyManagement facultyManagement = new FacultyManagement();
 //        facultyManagement.addFaculty();
 //        facultyManagement.displayAllStudents();
@@ -30,5 +32,17 @@ public class Main {
 ////        studentManagement.addStudents();
 ////        studentManagement.displayAllStudents();
 ////        studentManagement.getstudents();
+=======
+        }
+
+//        StudentManagement studentManagement = new StudentManagement();
+//        studentManagement.addStudents();
+//        studentManagement.removeStudents();
+//        studentManagement.displayAllStudents();
+//        studentManagement.getstudents();
+
+        StudentDetails studentDetails = new StudentDetails(1,"sohan", "cse");
+  //      studentDetails.getReport(studentDetails);
+>>>>>>> 1f08cd8f2da6c20b37baeba6f8cce9adef420e8d
     }
 }
