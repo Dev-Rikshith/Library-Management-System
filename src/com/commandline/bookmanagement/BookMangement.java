@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class BookMangement {
     private Book[] totalBooks= new Book[100];
+
     public void addBooks(){
         Scanner scanner = new Scanner(System.in);
         int numberOfBooksToAdd = scanner.nextInt();
@@ -20,6 +21,15 @@ public class BookMangement {
 
     }
     public void addToSystem(Book[] arrayToadd){
-
+        int index=-1;
+        outer:
+        for(int i=0;i< totalBooks.length;i++){
+            if(totalBooks==null){
+                break outer;
+            }
+            index++;
+        }
+        System.arraycopy(arrayToadd,0,totalBooks,index,arrayToadd.length);
+        //TODO should sorted method also be added?
     }
 }
