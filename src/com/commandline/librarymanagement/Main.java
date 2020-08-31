@@ -6,6 +6,9 @@ import com.commandline.studentmangement.StudentManagement;
 public class Main {
 
     public static void main(String[] args) {
+        class ComplaintBox{
+
+        }
 
 //        StudentManagement studentManagement = new StudentManagement();
 //        studentManagement.addStudents();
