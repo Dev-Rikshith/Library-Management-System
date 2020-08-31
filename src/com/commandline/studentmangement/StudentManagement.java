@@ -12,26 +12,30 @@ import java.util.*;
 public class StudentManagement {
 
     private StudentDetails[] totalStudents = new StudentDetails[50];
+    private int numberOfStudentsToAdd = 0;
+    private int totalStudentsPresent = 0;
 
     public void addStudents() {
-        Scanner scanner = new Scanner(System.in);
-        int numberOfStudentsToAdd = scanner.nextInt();
+        Scanner scannerForInts = new Scanner(System.in);
+        Scanner scannerForStrings = new Scanner(System.in);
+        System.out.println("Enter number of students to add : ");
+        numberOfStudentsToAdd = scannerForInts.nextInt();
         StudentDetails[] studentsToAdd = new StudentDetails[numberOfStudentsToAdd];
         //Initializes the student objects by taking the inputs at the runtime
         for (int i = 0; i < numberOfStudentsToAdd; i++) {
             System.out.println("Enter the details of the student at position " + i);
-            studentsToAdd[i] = new StudentDetails(scanner.nextInt(), scanner.nextLine(), scanner.nextLine());
+            studentsToAdd[i] = new StudentDetails(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine());
         }
-        scanner.close();
+        totalStudentsPresent = totalStudentsPresent + numberOfStudentsToAdd;
         //copies the objects of students to the main array
         addToSystem(studentsToAdd);
     }
 
-    public void addToSystem(StudentDetails[] arrayToAdd) {
-        int index = -1;
+    private void addToSystem(StudentDetails[] arrayToAdd) {
+        int index = 0;
         outer:
         for (int i = 0; i < totalStudents.length; i++) {
-            if (totalStudents == null) {
+            if (totalStudents[i] == null) {
                 break outer;
             }
             index++;
@@ -45,38 +49,20 @@ public class StudentManagement {
         //TODO implement a sorting algorithm to sort the students
     }
 
-    public ArrayList<StudentDetails> removeStudents() {
-        int index = -1;
-        ArrayList<StudentDetails> removedStudents = new ArrayList<>();
+    public StudentDetails removeStudents() {
+        StudentDetails studentDetails1 = null;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the number of students to remove");
-        int numberOfStudentsToRemove = scanner.nextInt();
-        List<StudentDetails> listOfStudents = Arrays.asList(totalStudents.clone());
+        System.out.println("Enter the name of the student to delete");
+        String studentToDelete = scanner.nextLine();
         //searches the element and records its index and then breaks out of the loop
-        for (int i = 0; i <= numberOfStudentsToRemove; i++) {
-            System.out.println("Enter the student id to remove");
-            int id = scanner.nextInt();
+        for (int i = 0; i <= totalStudents.length; i++) {
             outer:
-            for (StudentDetails studentDetails : listOfStudents) {
-                if (id == studentDetails.id) {
-                    break outer;
-                }
-                index++;
+            if (studentToDelete.equals(totalStudents[i].fullName)) {
+                studentDetails1 = totalStudents[i];
+                totalStudents[i] = null;
             }
-            //Adds to the list and returns it
-            removedStudents.add(listOfStudents.get(index));
-            listOfStudents.remove(index);
         }
-        //converts the list to array and then assigns it to the main array
-        for (int i = 0; i < totalStudents.length; i++) {
-            ListIterator<StudentDetails> listIterator = listOfStudents.listIterator();
-            while (listIterator.hasNext()) {
-                totalStudents[i] = listIterator.next();
-            }
-            break;
-        }
-        scanner.close();
-        return removedStudents;
+        return studentDetails1;
     }
 
     public StudentDetails getstudents() {
@@ -106,7 +92,17 @@ public class StudentManagement {
     }
 
     public int totalNumberOfStudents() {
-        return totalStudents.length;
+        return totalStudentsPresent;
+    }
+
+    public void displayAllStudents(){
+        for (int i = 0; i < totalStudents.length; i++) {
+            if(totalStudents[i] == null){
+                System.out.println("Slot Empty");
+            }else{
+                System.out.println(totalStudents[i]);
+            }
+        }
     }
 
 }
