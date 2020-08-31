@@ -1,4 +1,5 @@
 package com.commandline.facultyMangement;
+
 import com.commandline.bookmanagement.Book;
 
 import java.io.FileWriter;
@@ -12,6 +13,7 @@ public class FacultyDetails {
     protected int checkIn;
     protected int checkOut;
     protected Book[] recommendedBooks;
+    private int outStandingDues;
 
     public FacultyDetails(int id, String fullName, String branch) {
         this.id = id;
@@ -19,17 +21,53 @@ public class FacultyDetails {
         this.branch = branch;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getFullName() { return fullName; }
+    public String getFullName() {
+        return fullName;
+    }
 
-    public void setFullName(String fullName) { this.fullName = fullName; }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-    public String getBranch() { return branch; }
+    public String getBranch() {
+        return branch;
+    }
 
-    public void setBranch(String branch) { this.branch = branch; }
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public int getCheckIn() {
+        return checkIn;
+    }
+
+    public void setCheckIn(int checkIn) {
+        this.checkIn = checkIn;
+    }
+
+    public int getCheckOut() {
+        return checkOut;
+    }
+
+    public void setCheckOut(int checkOut) {
+        this.checkOut = checkOut;
+    }
+
+    public int getOutStandingDues() {
+        return outStandingDues;
+    }
+
+    public void setOutStandingDues(int outStandingDues) {
+        this.outStandingDues = outStandingDues;
+    }
 
     @Override
     public String toString() {
@@ -39,38 +77,15 @@ public class FacultyDetails {
                 ", branch='" + branch + '\'' +
                 '}';
     }
-    public int checkIn(int timeHours,int timeMinutes){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the time when Faculty checkedIn in hours : ");
-        timeHours = scanner.nextInt();
-        System.out.println("Enter the time when Faculty checkedIn in minutes :  ");
-        timeMinutes = scanner.nextInt();
-        timeHours *= 60;
-        int time = timeHours + timeMinutes;
-//            int lastDigit,reversedNumber=0;
-//            while(timeHours!=0) {
-//                lastDigit = timeHours % 10;
-//                reversedNumber = (reversedNumber*10) + lastDigit;
-//                timeHours = timeHours / 10;
-        return time;
-    }
-    public int checkOut(int timeHours,int timeMinutes){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the time when Faculty checkedOut in hours : ");
-        timeHours = scanner.nextInt();
-        System.out.println("Enter the time when Faculty checkedOut in minutes :  ");
-        timeMinutes = scanner.nextInt();
-        timeHours *= 60;
-        int time = timeHours + timeMinutes;
-        return time;
-    }
-    public void facultyDetails(FacultyDetails facultyDetails){
-       facultyDetails.toString();
-       int book_pos = 0;
-       System.out.println("The Faculty has the following outstanding Book Recommendations : ");
-       for(Book recommendedBooks : recommendedBooks) {
-           book_pos++;
-           System.out.println(book_pos + "." + recommendedBooks);
-       }
+
+    public void facultyDetails(FacultyDetails facultyDetails) {
+        facultyDetails.toString();
+        int book_pos = 0;
+        System.out.println("The Faculty has the following outstanding Book Recommendations : ");
+        for (Book book : recommendedBooks) {
+            book_pos++;
+            System.out.println(book_pos + "." + book);
+        }
+        book_pos = 0;
     }
 }
