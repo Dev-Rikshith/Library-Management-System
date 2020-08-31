@@ -1,9 +1,11 @@
 package com.commandline.bookmanagement;
 
+import com.commandline.studentmangement.StudentDetails;
 import org.w3c.dom.ls.LSOutput;
 
 import javax.crypto.spec.PSource;
-import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class BookMangement {
     private Book[] totalBooks = new Book[100];
@@ -33,4 +35,36 @@ public class BookMangement {
         System.arraycopy(arrayToAdd, 0, totalBooks, index, arrayToAdd.length);
         //TODO should sorted method also be added?
     }
-}
+    public ArrayList<Book> removeBook(){
+     int index=-1;
+     ArrayList<Book> removedBook = new ArrayList<>();
+     Scanner scanner = new Scanner(System.in);
+     System.out.print("Enter the number of books to remove");
+     int numberOfBooksToremove = scanner.nextInt();
+        List<Book> listOfBooks = Arrays.asList(totalBooks.clone());
+     for(int i=0;i<=numberOfBooksToremove;i++){
+         System.out.println("Enter the book id to remove");
+         int id = scanner.nextInt();
+         outer:
+         for(Book bookdetails :listOfBooks){
+             if(id==bookdetails.id){
+                 break outer;
+             }
+             index ++;
+         }
+         removedBook.add(listOfBooks.get(index));
+         listOfBooks.remove(index);
+     }
+     for(int i=0;i<totalBooks.length;i++){
+         ListIterator<Book> listIterator = listOfBooks.listIterator();
+         while (listIterator.hasNext()) {
+             totalBooks[i] = listIterator.next();
+         }
+         break;
+     }
+        scanner.close();
+        return removedBook;
+     }
+
+    }
+

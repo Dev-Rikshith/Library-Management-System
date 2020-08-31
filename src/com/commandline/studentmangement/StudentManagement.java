@@ -98,6 +98,7 @@ public class StudentManagement {
             while (listIterator.hasNext()) {
                 totalStudents[i] = listIterator.next();
             }
+
             break;
         }
         scanner.close();
