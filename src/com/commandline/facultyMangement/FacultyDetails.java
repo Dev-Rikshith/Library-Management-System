@@ -4,6 +4,7 @@ import com.commandline.bookmanagement.Book;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FacultyDetails {
@@ -12,7 +13,7 @@ public class FacultyDetails {
     protected String branch;
     protected int checkIn;
     protected int checkOut;
-    protected Book[] recommendedBooks;
+    protected ArrayList<Book> recommendedBooks;
     private int outStandingDues;
 
     public FacultyDetails(int id, String fullName, String branch) {

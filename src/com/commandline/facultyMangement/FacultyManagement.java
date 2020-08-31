@@ -1,5 +1,8 @@
 package com.commandline.facultyMangement;
 
+import com.commandline.bookmanagement.Book;
+import com.commandline.bookmanagement.Book;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,10 +32,7 @@ public class FacultyManagement {
         int time = timeHours + timeMinutes;
         facultyDetails.setCheckOut(time);
         scanner.close();
-        int totalPenalty = computePenalty(facultyDetails);
-        int dues = facultyDetails.getOutStandingDues();
-        dues = dues + totalPenalty;
-        facultyDetails.setOutStandingDues(dues);
+        completeCheckout(facultyDetails);
     }
 
     public int computeTotalTime(int startTime, int endTime) {
@@ -50,6 +50,17 @@ public class FacultyManagement {
             int penalty = lateTime * 1;
             return penalty;
         }
+    }
+
+    public void completeCheckout(FacultyDetails facultyDetails) {
+        Scanner scanner = new Scanner(System.in);
+        int totalPenalty = computePenalty(facultyDetails);
+        int dues = facultyDetails.getOutStandingDues();
+        dues = dues + totalPenalty;
+        facultyDetails.setOutStandingDues(dues);
+        System.out.println("Sir/Madam do you want to recommend any books to the students");
+        facultyDetails.recommendedBooks.add(new Book(scanner.nextInt(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextInt()));
+        scanner.close();
     }
 }
 

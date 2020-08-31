@@ -16,8 +16,7 @@ public class Book {
     }
 
 
-
-        public int getId() {
+    public int getId() {
         return id;
     }
 
@@ -68,7 +67,8 @@ public class Book {
                 ", bookCount=" + bookCount +
                 '}';
     }
-    public void bookDetails(Book bookDetails){
+
+    public void bookDetails(Book bookDetails) {
         bookDetails.toString();
     }
 
