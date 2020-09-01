@@ -29,6 +29,12 @@ public class BookManagement {
         //Initializes the Book objects by taking the inputs at the runtime
         for (int i = 0; i < numberOfBookToAdd; i++) {
             System.out.println("Enter the details of the book at position " + (i+1));
+            System.out.println("Enter the Book Details in the given way below");
+            System.out.println("1.Book Id");
+            System.out.println("2.Book Name");
+            System.out.println("3.Book Author");
+            System.out.println("4.Book Review");
+            System.out.println("5.Book Count");
             bookToAdd[i] = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
         }
         totalBookPresent = totalBookPresent + numberOfBookToAdd;
@@ -112,8 +118,7 @@ public class BookManagement {
             System.out.println("2.Delete a Book");
             System.out.println("3.Get a Book");
             System.out.println("4.Display all Books");
-            System.out.println("Exit");
-            System.out.println("5.Enter your choice");
+            System.out.println("5.Exit");
             System.out.println("+++++++++++++++++++++++++++++++++++++++");
             int choice1 = scanner.nextInt();
             switch (choice1) {

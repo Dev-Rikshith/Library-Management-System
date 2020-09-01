@@ -30,7 +30,11 @@ public class FacultyManagement {
         FacultyDetails[] facultyToAdd = new FacultyDetails[numberOfFacultyToAdd];
         //Initializes the student objects by taking the inputs at the runtime
         for (int i = 0; i < numberOfFacultyToAdd; i++) {
-            System.out.println("Enter the details of the faculty at position " + i);
+            System.out.println("Enter the details of the faculty at position " + (i+1));
+            System.out.println("Enter the Faculty Details in the given way below");
+            System.out.println("1.Faculty Id");
+            System.out.println("2.Faculty Name");
+            System.out.println("3.Faculty Branch");
             facultyToAdd[i] = new FacultyDetails(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine());
         }
         totalFacultyPresent = totalFacultyPresent + numberOfFacultyToAdd;

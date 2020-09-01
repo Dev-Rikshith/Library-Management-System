@@ -32,6 +32,10 @@ public class StudentManagement {
         //Initializes the student objects by taking the inputs at the runtime
         for (int i = 0; i < numberOfStudentsToAdd; i++) {
             System.out.println("Enter the details of the student at position " + (i+1));
+            System.out.println("Enter the Student Details in the given way below");
+            System.out.println("1.Student Id");
+            System.out.println("2.Student Name");
+            System.out.println("3.Student Branch");
             studentsToAdd[i] = new StudentDetails(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine());
         }
         totalStudentsPresent = totalStudentsPresent + numberOfStudentsToAdd;
@@ -152,7 +156,6 @@ public class StudentManagement {
             System.out.println("Enter your choice");
             System.out.println("+++++++++++++++++++++++++++++++++++++++++");
             int choice3 = scanner.nextInt();
-//            StudentManagement studentManagement = new StudentManagement();
             switch (choice3) {
                 case 1:
                     addStudents();

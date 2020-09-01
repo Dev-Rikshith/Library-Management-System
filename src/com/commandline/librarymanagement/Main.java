@@ -144,6 +144,12 @@ class ComplaintBox {
     public void damagedBooks(){
         Scanner scannerForInts = new Scanner(System.in);
         Scanner scannerForStrings = new Scanner(System.in);
+        System.out.println("Enter the Book Details in the given way below");
+        System.out.println("1.Book Id");
+        System.out.println("2.Book Name");
+        System.out.println("3.Book Author");
+        System.out.println("4.Book Review");
+        System.out.println("5.Book Count");
         damagedBooks.add(new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt()));
 
     }
