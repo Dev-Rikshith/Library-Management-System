@@ -71,42 +71,42 @@ public class StudentManagement {
 
     public StudentDetails getStudents() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the id of the student to retrive");
-        int studentToRetrive = scanner.nextInt();
+        System.out.println("Enter the id of the student to retrieve");
+        int studentToRetrieve = scanner.nextInt();
         //searches the element and records its index and then breaks out of the loop
         for (int i = 0; i <= totalStudents.length; i++) {
             if (totalStudents[i] == null) {
                 continue;
-            } else if (studentToRetrive == totalStudents[i].id) {
+            } else if (studentToRetrieve == totalStudents[i].id) {
                 return totalStudents[i];
             }
         }
-		return null;
+        return null;
     }
-    
+
     public void manageBooks() {
-    	StudentDetails studentToManage = getStudents();
-    	Scanner scannerForInts = new Scanner(System.in);
-    	Scanner scannerForStrings = new Scanner(System.in);
-    	if(studentToManage == null) {
-    		System.out.println("No Student found");
-    	}else {
-    		System.out.println("\n1.Request Books\n2.Issue Books");
-    		int choice = scannerForInts.nextInt();
-    		switch (choice) {
-			case 1: {
-				Book requestedBook = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
-				studentToManage.requestedBooks.add(requestedBook);
-			}
-			break;
-			case 2: {
-				Book issuedBook = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
-				studentToManage.issuedBooks.add(issuedBook);
-			}
-			default:
-				throw new IllegalArgumentException("Unexpected value: " + choice);
-			}
-    	}
+        StudentDetails studentToManage = getStudents();
+        Scanner scannerForInts = new Scanner(System.in);
+        Scanner scannerForStrings = new Scanner(System.in);
+        if (studentToManage == null) {
+            System.out.println("No Student found");
+        } else {
+            System.out.println("\n1.Request Books\n2.Issue Books");
+            int choice = scannerForInts.nextInt();
+            switch (choice) {
+                case 1: {
+                    Book requestedBook = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
+                    studentToManage.requestedBooks.add(requestedBook);
+                }
+                break;
+                case 2: {
+                    Book issuedBook = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
+                    studentToManage.issuedBooks.add(issuedBook);
+                }
+                default:
+                    throw new IllegalArgumentException("Unexpected value: " + choice);
+            }
+        }
     }
 
     public int totalNumberOfStudents() {

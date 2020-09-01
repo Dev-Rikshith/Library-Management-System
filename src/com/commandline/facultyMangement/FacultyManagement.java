@@ -26,7 +26,7 @@ public class FacultyManagement {
         Scanner scannerForInts = new Scanner(System.in);
         Scanner scannerForStrings = new Scanner(System.in);
         System.out.println("Enter number of faculty to add : ");
-        numberOfFacultyToAdd= scannerForInts.nextInt();
+        numberOfFacultyToAdd = scannerForInts.nextInt();
         FacultyDetails[] facultyToAdd = new FacultyDetails[numberOfFacultyToAdd];
         //Initializes the student objects by taking the inputs at the runtime
         for (int i = 0; i < numberOfFacultyToAdd; i++) {
@@ -52,6 +52,7 @@ public class FacultyManagement {
         //sort the main array after every insert
         sortTotalFaculty();
     }
+
     public void removeFaculty() {
         FacultyDetails facultyDetails1 = null;
         Scanner scanner = new Scanner(System.in);
@@ -69,61 +70,68 @@ public class FacultyManagement {
         }
         System.out.println(facultyDetails1.fullName + " with the id " + facultyDetails1.id + " deleted from the system");
     }
+
     public void sortTotalFaculty() {
         //TODO implement a sorting algorithm to sort the faculty
     }
 
-    public void getFaculty() {
+    public FacultyDetails getFaculty() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the id of the student to retrieve");
+        System.out.println("Enter the id of the faculty to retrieve");
         int facultyToRetrieve = scanner.nextInt();
         //searches the element and records its index and then breaks out of the loop
         for (int i = 0; i <= totalFaculty.length; i++) {
             if (totalFaculty[i] == null) {
                 continue;
             } else if (facultyToRetrieve == totalFaculty[i].id) {
-                totalFaculty[i].toString();
+                return totalFaculty[i];
             }
         }
+        return null;
     }
 
     public int totalNumberOfFaculty() {
 
         return totalFacultyPresent;
     }
-    public void displayAllStudents(){
+
+    public void displayAllFaculty() {
         for (int i = 0; i < totalFaculty.length; i++) {
-            if(totalFaculty[i] == null){
+            if (totalFaculty[i] == null) {
                 System.out.println("Slot Empty");
-            }else{
+            } else {
                 System.out.println(totalFaculty[i]);
             }
         }
     }
 
-    public void checkIn(FacultyDetails facultyDetails) {
+    public void checkIn() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the faculty id to check-in");
+        FacultyDetails facultyDetails1 = getFaculty();
         System.out.println("Enter the time when Faculty checkedIn in hours : ");
         int timeHours = scanner.nextInt();
         System.out.println("Enter the time when Faculty checkedIn in minutes :  ");
         int timeMinutes = scanner.nextInt();
         timeHours *= 60;
         int time = timeHours + timeMinutes;
-        facultyDetails.setCheckIn(time);
+        facultyDetails1.setCheckIn(time);
         scanner.close();
     }
 
-    public void checkOut(FacultyDetails facultyDetails) {
+    public void checkOut() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the faculty id to check-in");
+        FacultyDetails facultyDetails1 = getFaculty();
         System.out.println("Enter the time when Faculty checkedOut in hours : ");
         int timeHours = scanner.nextInt();
         System.out.println("Enter the time when Faculty checkedOut in minutes :  ");
         int timeMinutes = scanner.nextInt();
         timeHours *= 60;
         int time = timeHours + timeMinutes;
-        facultyDetails.setCheckOut(time);
+        facultyDetails1.setCheckOut(time);
         scanner.close();
-        completeCheckout(facultyDetails);
+        completeCheckout(facultyDetails1);
     }
 
     public int computeTotalTime(int startTime, int endTime) {
@@ -151,7 +159,11 @@ public class FacultyManagement {
         facultyDetails.setOutStandingDues(dues);
         System.out.println("Sir/Madam do you want to recommend any books to the students");
         facultyDetails.recommendedBooks.add(new Book(scanner.nextInt(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextInt()));
+        payDues(dues, facultyDetails);
+    }
 
+    public void payDues(int dues, FacultyDetails facultyDetails){
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Sir/Madam you have an OutstandingDue of : Rs." + facultyDetails.getOutStandingDues() + " would you like to pay this amount?");
         System.out.println("Press Y for yes and N for no");
         String response = scanner.nextLine().toLowerCase();
@@ -169,12 +181,10 @@ public class FacultyManagement {
                 facultyMoney = facultyMoney - dues;
                 System.out.println("Sir/Madam thanks for clearing your total due,After paying you are left with a change of : Rs." + facultyMoney);
             }
-        }
-        else {
+        } else {
             System.out.println("Sir/Madam Thanks for visiting");
         }
     }
-
 }
 
 
