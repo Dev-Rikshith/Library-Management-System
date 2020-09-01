@@ -1,4 +1,11 @@
 package com.commandline.facultyMangement;
+/**
+ * @author Sohan Kotha
+ * This class basically implements all the Faculty methods
+ * and then processes them to add, delete, retrieve
+ * Check the inTime and outTime totalFaculty and then
+ * returns or prints them to the screen
+ */
 
 import com.commandline.bookmanagement.Book;
 import com.commandline.bookmanagement.Book;
@@ -45,11 +52,45 @@ public class FacultyManagement {
         //sort the main array after every insert
         sortTotalFaculty();
     }
+    public void removeFaculty() {
+        FacultyDetails facultyDetails1 = null;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the id of the faculty to delete");
+        int facultyToDelete = scanner.nextInt();
+        //searches the element and records its index and then breaks out of the loop
+        for (int i = 0; i <= totalFaculty.length; i++) {
+            if (totalFaculty[i] == null) {
+                continue;
+            } else if (facultyToDelete == totalFaculty[i].id) {
+                facultyDetails1 = totalFaculty[i];
+                totalFaculty[i] = null;
+                break;
+            }
+        }
+        System.out.println(facultyDetails1.fullName + " with the id " + facultyDetails1.id + " deleted from the system");
+    }
     public void sortTotalFaculty() {
         //TODO implement a sorting algorithm to sort the faculty
     }
 
+    public void getFaculty() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the id of the student to retrieve");
+        int facultyToRetrieve = scanner.nextInt();
+        //searches the element and records its index and then breaks out of the loop
+        for (int i = 0; i <= totalFaculty.length; i++) {
+            if (totalFaculty[i] == null) {
+                continue;
+            } else if (facultyToRetrieve == totalFaculty[i].id) {
+                totalFaculty[i].toString();
+            }
+        }
+    }
 
+    public int totalNumberOfFaculty() {
+
+        return totalFacultyPresent;
+    }
     public void displayAllStudents(){
         for (int i = 0; i < totalFaculty.length; i++) {
             if(totalFaculty[i] == null){
@@ -59,7 +100,6 @@ public class FacultyManagement {
             }
         }
     }
-
 
     public void checkIn(FacultyDetails facultyDetails) {
         Scanner scanner = new Scanner(System.in);

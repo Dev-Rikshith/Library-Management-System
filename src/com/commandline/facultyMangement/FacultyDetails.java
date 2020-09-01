@@ -1,12 +1,4 @@
 package com.commandline.facultyMangement;
-
-import com.commandline.bookmanagement.Book;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 /**
  * @author Sohan Kotha
  * This class basically wraps all the Faculty details into a object
@@ -15,6 +7,12 @@ import java.util.Scanner;
  * to the screen or to a file using the toString method
  */
 
+import com.commandline.bookmanagement.Book;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FacultyDetails {
     protected int id;

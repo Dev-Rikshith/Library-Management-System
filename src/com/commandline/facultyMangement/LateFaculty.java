@@ -1,4 +1,8 @@
 package com.commandline.facultyMangement;
+/**
+ * @author Sohan Kotha
+ * This class basically is wrapper class to access the in and out time of faculty.
+ */
 
 public class LateFaculty {
 
