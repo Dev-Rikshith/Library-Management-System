@@ -44,6 +44,7 @@ public class Main {
                         default:
                             System.out.println("Enter correct choice");
                     }
+                    break;
                 case 2:
                     System.out.println("1.Add a Faculty or a Faculties");
                     System.out.println("2.Delete a Faculty");
@@ -81,7 +82,8 @@ public class Main {
                         default:
                             System.out.println("Enter correct choice");
                     }
-                case 3:
+                    break;
+                case 3: {
                     System.out.println("1.Add a Student or Students");
                     System.out.println("2.Delete a Student");
                     System.out.println("3.Get a Student");
@@ -112,12 +114,15 @@ public class Main {
                         case 6:
                             StudentDetails studentDetails1 = studentManagement.getStudents();
                             studentDetails1.getDetails(studentDetails1);
+                            break;
                         case 7:
                             flag = false;
                             break;
                         default:
                             System.out.println("Enter correct choice");
                     }
+                }
+                    break;
                 case 4:
                     System.out.println("1.Register a Complaint");
                     System.out.println("2.Exit");
@@ -133,6 +138,7 @@ public class Main {
                         default:
                             System.out.println("Enter correct choice");
                     }
+                    break;
                 case 5:
                     flag = false;
                     break;
