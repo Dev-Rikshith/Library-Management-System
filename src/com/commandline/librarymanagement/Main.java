@@ -86,6 +86,7 @@ public class Main {
                     }
                     break;
                 case 3: {
+                    System.out.println("+++++++++++++++++++++++++++++++++++++++");
                     System.out.println("1.Add a Student or Students");
                     System.out.println("2.Delete a Student");
                     System.out.println("3.Get a Student");
@@ -94,6 +95,7 @@ public class Main {
                     System.out.println("6.Get Student Details");
                     System.out.println("7.Exit");
                     System.out.println("Enter your choice");
+                    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
                     int choice3 = scanner.nextInt();
                     StudentManagement studentManagement = new StudentManagement();
                     switch (choice3) {
@@ -104,8 +106,12 @@ public class Main {
                             studentManagement.removeStudents();
                             break;
                         case 3:
-                            StudentDetails studentDetails = studentManagement.getStudents();
-                            System.out.println(studentDetails.toString());
+                            StudentDetails studentDetails1 = studentManagement.getStudents();
+                            if(studentDetails1 == null){
+                                System.out.println("no student found");
+                            }else{
+                                System.out.println(studentDetails1);
+                            }
                             break;
                         case 4:
                             studentManagement.displayAllStudents();
@@ -114,8 +120,12 @@ public class Main {
                             studentManagement.manageBooks();
                             break;
                         case 6:
-                            StudentDetails studentDetails1 = studentManagement.getStudents();
-                            studentDetails1.getDetails(studentDetails1);
+                            StudentDetails studentDetails2 = studentManagement.getStudents();
+                            if(studentDetails2 == null){
+                                System.out.println("no student found");
+                            }else{
+                                System.out.println(studentDetails2);
+                            }
                             break;
                         case 7:
                             flag = false;
