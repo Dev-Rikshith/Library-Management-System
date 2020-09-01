@@ -13,7 +13,7 @@ import com.commandline.bookmanagement.Book;
 
 public class StudentManagement {
 
-    public StudentDetails[] totalStudents = new StudentDetails[2];
+    public StudentDetails[] totalStudents = new StudentDetails[10];
     protected int numberOfStudentsToAdd = 0;
     protected int totalStudentsPresent = 0;
 
@@ -49,18 +49,14 @@ public class StudentManagement {
             index++;
         }
         System.arraycopy(arrayToAdd, 0, totalStudents, index, arrayToAdd.length);
-        //sort the main array after every insert
-//        sortTotalStudents();
-    }
 
-//    public void sortTotalStudents() {
-//        //TODO implement a sorting algorithm to sort the students
-//    }
+    }
 
     public void removeStudents() {
         int i;
         StudentDetails studentDetails1 = null;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++++++++++++++++++");
         System.out.println("Enter the id of the student to delete");
         int studentToDelete = scanner.nextInt();
         //searches the element and records its index and then breaks out of the loop
@@ -75,7 +71,7 @@ public class StudentManagement {
             }
         }
         if(i>=totalStudents.length){
-            System.out.println("Student not found");
+            System.out.println("Student Not Found");
         }else{
             System.out.println(studentDetails1.fullName + " with the id " + studentDetails1.id + " deleted from the system");
         }
@@ -84,6 +80,7 @@ public class StudentManagement {
 
     public StudentDetails getStudents() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++++++++++++++++++");
         System.out.println("Enter the id of the student to retrieve");
         int studentToRetrieve = scanner.nextInt();
         //searches the element and records its index and then breaks out of the loop
@@ -104,7 +101,9 @@ public class StudentManagement {
         if (studentToManage == null) {
             System.out.println("No Student found");
         } else {
+            System.out.println("+++++++++++++++++++");
             System.out.println("\n1.Request Books\n2.Issue Books");
+            System.out.println("+++++++++++++++++++");
             int choice = scannerForInts.nextInt();
             switch (choice) {
                 case 1: {
