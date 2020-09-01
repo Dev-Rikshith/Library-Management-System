@@ -113,11 +113,23 @@ public class StudentManagement {
             int choice = scannerForInts.nextInt();
             switch (choice) {
                 case 1: {
+                    System.out.println("Enter the Book Details in the given way below");
+                    System.out.println("1.Book Id");
+                    System.out.println("2.Book Name");
+                    System.out.println("3.Book Author");
+                    System.out.println("4.Book Review");
+                    System.out.println("5.Book Count");
                     Book requestedBook = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
                     studentToManage.requestedBooks.add(requestedBook);
                 }
                 break;
                 case 2: {
+                    System.out.println("Enter the Book Details in the given way below");
+                    System.out.println("1.Book Id");
+                    System.out.println("2.Book Name");
+                    System.out.println("3.Book Author");
+                    System.out.println("4.Book Review");
+                    System.out.println("5.Book Count");
                     Book issuedBook = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
                     studentToManage.issuedBooks.add(issuedBook);
                 }

@@ -115,8 +115,9 @@ public class FacultyManagement {
         public void checkIn () {
             Scanner scanner = new Scanner(System.in);
             FacultyDetails facultyDetails1 = getFaculty();
-            System.out.println("Enter the time when Faculty checkedIn in hours and minutes : ");
+            System.out.println("Enter the time when Faculty checkedOut in hours");
             int timeHours = scanner.nextInt();
+            System.out.println("Enter the time when Faculty checkedOut in minutes");
             int timeMinutes = scanner.nextInt();
             timeHours *= 60;
             int totalTime = timeHours + timeMinutes;
@@ -129,8 +130,9 @@ public class FacultyManagement {
             Scanner scanner = new Scanner(System.in);
             FacultyDetails facultyDetails1 = getFaculty();
             if(facultyDetails1.inLibrary){
-                System.out.println("Enter the time when Faculty checkedOut in hours and minutes: ");
+                System.out.println("Enter the time when Faculty checkedOut in hours");
                 int timeHours = scanner.nextInt();
+                System.out.println("Enter the time when Faculty checkedOut in minutes");
                 int timeMinutes = scanner.nextInt();
                 timeHours *= 60;
                 int time = timeHours + timeMinutes;
@@ -165,11 +167,18 @@ public class FacultyManagement {
             int dues = facultyDetails.getOutStandingDues();
             dues = dues + totalPenalty;
             facultyDetails.setOutStandingDues(dues);
-            System.out.println("Sir/Madam do you want to recommend any books to the students");
+            System.out.println("Sir/Madam do you want to recommend any books to the students.Press Y/N");
             String option = scanner1.nextLine();
             option = option.toLowerCase();
             if(option.equals("y")){
-                facultyDetails.recommendedBooks.add(new Book(scanner.nextInt(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextInt()));
+                System.out.println("Enter the Book Details in the given way below");
+                System.out.println("1.Book Id");
+                System.out.println("2.Book Name");
+                System.out.println("3.Book Author");
+                System.out.println("4.Book Review");
+                System.out.println("5.Book Count");
+                Book book =new Book(scanner.nextInt(), scanner1.nextLine(), scanner1.nextLine(), scanner1.nextLine(), scanner.nextInt());
+                facultyDetails.recommendedBooks.add(book);
                 payDues(dues, facultyDetails);
             }else if(option.equals("n")){
                 payDues(dues, facultyDetails);
