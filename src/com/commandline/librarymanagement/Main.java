@@ -12,22 +12,26 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean flag = true;
-        public static void main(String[] args){
-            Scanner scanner = new Scanner(System.in);
-            BookManagement bookManagement = new BookManagement();
-            StudentManagement studentManagement = new StudentManagement();
-            FacultyManagement facultyManagement = new FacultyManagement();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        BookManagement bookManagement = new BookManagement();
+        StudentManagement studentManagement = new StudentManagement();
+        FacultyManagement facultyManagement = new FacultyManagement();
         while (flag) {
             System.out.println("1.Book Management\n" + "2.Faculty Management\n" + "3.Student Management\n" + "4.Complaint Box\n" + "5.Exit");
             System.out.println("Enter your choice");
             int choice = scanner.nextInt();
             switch (choice) {
-                case 1: bookManagement.runner();
+                case 1:
+                    bookManagement.runner();
                     break;
-                case 2: facultyManagement.runner();
+                case 2:
+                    facultyManagement.runner();
                     break;
-                case 3: studentManagement.runner();
-                break;
+                case 3:
+                    studentManagement.runner();
+                    break;
                 case 4:
                     System.out.println("1.Register a Complaint");
                     System.out.println("2.Exit");
@@ -51,10 +55,10 @@ public class Main {
                     throw new IllegalArgumentException("Enter the correct choice");
             }
         }
-            }
+    }
 
 
-        }
+}
 
 class ComplaintBox {
     public void bookDamage() {
@@ -78,7 +82,7 @@ class ComplaintBox {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You can write down your complaint below");
         String complaint = scanner.nextLine().toLowerCase();
-        System.out.println("Your Complaint: "+complaint);
+        System.out.println("Your Complaint: " + complaint);
         System.out.println("Thanks for reporting your issue we will surely try to sort it");
         System.out.println("Please visit again :)");
     }
@@ -106,14 +110,12 @@ class ComplaintBox {
                 default:
                     System.out.println("Wrong Option");
             }
-        }
-        else if (response.equals("n")) {
+        } else if (response.equals("n")) {
             System.out.println("We are glad to know that");
             System.out.println("Thanks for visiting :)");
-        }
-        else {
+        } else {
             System.out.println("Please enter Y/N carefully,this is a last chance");
-            String response1= scanner.nextLine().toLowerCase();
+            String response1 = scanner.nextLine().toLowerCase();
             if (response1.equals("y")) {
                 System.out.println("Please choose the complains from below options");
                 System.out.println("1.Book Damage");
@@ -133,8 +135,7 @@ class ComplaintBox {
                     default:
                         System.out.println("Wrong Option");
                 }
-            }
-            else{
+            } else {
                 System.out.println("As you have given a wrong input 2nd time you need to repeat the process to register a complaint");
                 System.out.println("Thanks for visiting :)");
 
