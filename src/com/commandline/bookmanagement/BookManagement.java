@@ -8,6 +8,8 @@ package com.commandline.bookmanagement;
 
 //import jdk.internal.util.xml.impl.Pair;
 
+import com.commandline.studentmangement.StudentDetails;
+
 import java.util.*;
 
 public class BookManagement {
@@ -16,11 +18,6 @@ public class BookManagement {
     private int totalBookPresent = 0;
     private int id;
 
-    public void initArray() {
-        for (int i = 0; i < totalBooks.length; i++) {
-            totalBooks[i] = new Book(0, "", "", "", 0);
-        }
-    }
 
     public void addBooks() {
         Scanner scannerForInts = new Scanner(System.in);
@@ -56,60 +53,24 @@ public class BookManagement {
         //TODO implement a sorting algorithm to sort the Book
     }
 
-
-    public Book searchBook() {
-        Book[] arrayToSort = totalBooks.clone();
-        for (int i = 0; i < arrayToSort.length; i++) {
-            System.out.println(arrayToSort[i]);
-        }
+    public void removeBook() {
+        Book book1 = null;
         Scanner scanner = new Scanner(System.in);
-        int low = 0, high = arrayToSort.length - 1, mid = (low + high) / 2;
-        System.out.println("Enter id to search");
-        id = scanner.nextInt();
-        while (low <= high) {
-            if (id == arrayToSort[mid].id) {
-                return arrayToSort[mid];
-            } else if (id < arrayToSort[mid].id) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
+        System.out.println("Enter the id of the book to delete");
+        int studentToDelete = scanner.nextInt();
+        //searches the element and records its index and then breaks out of the loop
+        for (int i = 0; i <= totalBooks.length; i++) {
+            if (totalBooks[i] == null) {
+                continue;
+            } else if (studentToDelete == totalBooks[i].id) {
+                book1 = totalBooks[i];
+                totalBooks[i] = null;
+                break;
             }
-            mid = (low + high) / 2;
         }
-
-        return null;
+        System.out.println(book1.name + " with the id " + book1.id + " deleted from the system");
     }
 
-    public ArrayList<Book> removeBook() {
-        int index = -1;
-        ArrayList<Book> removedBook = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the number of books to remove");
-        int numberOfBooksToRemove = scanner.nextInt();
-        List<Book> listOfBooks = Arrays.asList(totalBooks.clone());
-        for (int i = 0; i <= numberOfBooksToRemove; i++) {
-            System.out.println("Enter the book id to remove");
-            int id = scanner.nextInt();
-            outer:
-            for (Book bookDetails : listOfBooks) {
-                if (id == bookDetails.id) {
-                    break outer;
-                }
-                index++;
-            }
-            removedBook.add(listOfBooks.get(index));
-            listOfBooks.remove(index);
-        }
-        for (int i = 0; i < totalBooks.length; i++) {
-            ListIterator<Book> listIterator = listOfBooks.listIterator();
-            while (listIterator.hasNext()) {
-                totalBooks[i] = listIterator.next();
-            }
-            break;
-        }
-        scanner.close();
-        return removedBook;
-    }
 
     public Book getBook() {
         int index = -1;
@@ -132,23 +93,14 @@ public class BookManagement {
     public int totalNumberOfBooks() {
         return totalBooks.length;
     }
-<<<<<<< HEAD
+
         public void displayAllBooks(){
             for (int i = 0; i < totalBooks.length; i++) {
                 if(totalBooks[i] == null){
                     System.out.println("Book Slot  is Empty");
                 }else{
                     System.out.println(totalBooks[i]);
-                }
-=======
 
-    public void displayAllBooks() {
-        for (int i = 0; i < totalBooks.length; i++) {
-            if (totalBooks[i] == null) {
-                System.out.println("Slot Empty");
-            } else {
-                System.out.println(totalBooks[i]);
->>>>>>> 13c98e1d9c29f3beb48aa3c1f23543d96b278c37
             }
         }
     }

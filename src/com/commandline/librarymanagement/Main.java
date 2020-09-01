@@ -1,8 +1,5 @@
 package com.commandline.librarymanagement;
 
-//<<<<<<< HEAD
-//import com.com fr4rmandline.bookmanagement.Book;
-//=======
 
 import com.commandline.bookmanagement.Book;
 import com.commandline.bookmanagement.BookManagement;
@@ -41,8 +38,8 @@ public class Main {
                             bookManagement.removeBook();
                             break;
                         case 3:
-                            bookManagement.getBook();
-                            break;
+                            Book book1 = bookManagement.getBook();
+                            System.out.println(book1.toString());
                         case 4:
                             bookManagement.displayAllBooks();
                             break;
@@ -68,7 +65,8 @@ public class Main {
                             facultyManagement.removeFaculty();
                             break;
                         case 3:
-                            facultyManagement.getFaculty();
+                            FacultyDetails facultyDetails = facultyManagement.getFaculty();
+                            System.out.println(facultyDetails.toString());
                             break;
                         case 4:
                             facultyManagement.displayAllFaculty();
@@ -104,7 +102,8 @@ public class Main {
                             studentManagement.removeStudents();
                             break;
                         case 3:
-                            studentManagement.getStudents();
+                            StudentDetails studentDetails = studentManagement.getStudents();
+                            System.out.println(studentDetails.toString());
                             break;
                         case 4:
                             studentManagement.displayAllStudents();
@@ -148,7 +147,7 @@ public class Main {
 class ComplaintBox {
     public void bookDamage() {
         BookManagement bookManagement = new BookManagement();
-        bookManagement.searchBook();
+        bookManagement.getBook();
         bookManagement.removeBook();
         System.out.println("Thanks for reporting your issue has been sorted");
         System.out.println("Please visit again :)");
