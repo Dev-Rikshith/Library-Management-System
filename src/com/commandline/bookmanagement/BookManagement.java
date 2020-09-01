@@ -14,8 +14,15 @@ public class BookManagement {
     private Book[] totalBooks = new Book[100];
     private int numberOfBookToAdd = 0;
     private int totalBookPresent = 0;
+    private  int id;
 
-    public void addStudents() {
+    public void initArray(){
+        for (int i = 0; i < totalBooks.length; i++) {
+            totalBooks[i] = new Book(0,"","","",0);
+        }
+    }
+
+    public void addBooks() {
         Scanner scannerForInts = new Scanner(System.in);
         Scanner scannerForStrings = new Scanner(System.in);
         System.out.println("Enter number of Book to add : ");
@@ -31,8 +38,8 @@ public class BookManagement {
         addToSystem(bookToAdd);
     }
 
-    public void addToSystem(Book[] arrayToAdd) {
-        int index = -1;
+    private void addToSystem(Book[] arrayToAdd) {
+        int index = 0;
         outer:
         for (int i = 0; i < totalBooks.length; i++) {
             if (totalBooks[i] == null) {
@@ -50,22 +57,26 @@ public class BookManagement {
     }
 
 
-    public Book searchBook(int id) {
+    public Book searchBook() {
         Book[] arrayToSort = totalBooks.clone();
-        Scanner scanner = new Scanner(System.in);
-        int low = 0, high = totalBooks.length - 1, mid = totalBooks.length/2;
-        System.out.println("Enter id to search");
-        int idToSearch = scanner.nextInt();
-        while (low <= high) {
-            if (id == totalBooks[mid].id) {
-                return totalBooks[mid];
-            } else if(id < totalBooks[mid].id){
-                high = mid - 1;
-            }else{
-                low = mid + 1;
-            }
-            mid = (low+high)/2;
+        for (int i = 0; i < arrayToSort.length; i++) {
+            System.out.println(arrayToSort[i]);
         }
+        Scanner scanner = new Scanner(System.in);
+        int low = 0, high = arrayToSort.length - 1, mid = (low+high)/2;
+        System.out.println("Enter id to search");
+        id = scanner.nextInt();
+        while (low <= high) {
+                if (id == arrayToSort[mid].id) {
+                    return arrayToSort[mid];
+                } else if(id < arrayToSort[mid].id){
+                    high = mid - 1;
+                }else{
+                    low = mid + 1;
+                }
+                mid = (low+high)/2;
+            }
+
         return null;
     }
 
@@ -129,7 +140,7 @@ public class BookManagement {
     public int totalNumberOfBooks(){
         return totalBooks.length;
     }
-        public void displayAllStudents(){
+        public void displayAllBooks(){
             for (int i = 0; i < totalBooks.length; i++) {
                 if(totalBooks[i] == null){
                     System.out.println("Slot Empty");
