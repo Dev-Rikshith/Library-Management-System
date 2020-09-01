@@ -64,9 +64,9 @@ public class Main {
 class ComplaintBox {
     private  ArrayList<Book> damagedBooks = new  ArrayList<>();
     public void bookDamage() {
-        BookManagement bookManagement = new BookManagement();
-        bookManagement.remov();
-        System.out.println("Thanks for reporting your issue has been sorted");
+        damagedBooks();
+        System.out.println("You complaint about damaged books has been register");
+        System.out.println("Thanks for reporting your issue will be sorted soon");
         System.out.println("Please visit again :)");
 
     }

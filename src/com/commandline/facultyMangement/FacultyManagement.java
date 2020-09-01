@@ -77,6 +77,7 @@ public class FacultyManagement {
 
     public FacultyDetails getFaculty() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++++++++++++++++++");
         System.out.println("Enter the id of the faculty to retrieve");
         int facultyToRetrieve = scanner.nextInt();
         //searches the element and records its index and then breaks out of the loop
@@ -96,6 +97,7 @@ public class FacultyManagement {
     }
 
         public void displayAllFaculty () {
+            System.out.println("++++++++++++++++++++++++++++++++");
             for (int i = 0; i < totalFaculty.length; i++) {
                 if (totalFaculty[i] == null) {
                     System.out.println("Slot Empty");
@@ -103,6 +105,7 @@ public class FacultyManagement {
                     System.out.println(totalFaculty[i]);
                 }
             }
+            System.out.println("++++++++++++++++++++++++++++++++");
         }
 
         public void checkIn () {
@@ -191,6 +194,7 @@ public class FacultyManagement {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         while(flag){
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
                 System.out.println("1.Add a Faculty or a Faculties");
                 System.out.println("2.Delete a Faculty");
                 System.out.println("3.Get a Faculty");
@@ -199,6 +203,7 @@ public class FacultyManagement {
                 System.out.println("6.Check-Out faculty");
                 System.out.println("7.Exit");
                 System.out.println("Enter your choice");
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
                 int choice = scanner.nextInt();
                 switch (choice) {
                     case 1:

@@ -71,6 +71,7 @@ public class BookManagement {
     public Book getBook() {
         int index = -1;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         System.out.println("Enter the Book id to remove");
         int idToSearch = scanner.nextInt();
         //converts the list to array and then assigns it to the main array
@@ -90,6 +91,7 @@ public class BookManagement {
     }
 
     public void displayAllBooks() {
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         for (int i = 0; i < totalBooks.length; i++) {
             if (totalBooks[i] == null) {
                 System.out.println("Book Slot  is Empty");
@@ -98,18 +100,21 @@ public class BookManagement {
 
             }
         }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
     }
 
     public void runner() {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
         while (flag) {
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
             System.out.println("1.Add a Book or Books");
             System.out.println("2.Delete a Book");
             System.out.println("3.Get a Book");
             System.out.println("4.Display all Books");
             System.out.println("Exit");
-            System.out.println("Enter your choice");
+            System.out.println("5.Enter your choice");
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
             int choice1 = scanner.nextInt();
             switch (choice1) {
                 case 1:
