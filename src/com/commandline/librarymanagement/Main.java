@@ -56,13 +56,12 @@ public class Main {
 
         }
 
+
 class ComplaintBox {
+    private  ArrayList<Book> damagedBooks = new  ArrayList<>();
     public void bookDamage() {
-        Scanner scanner = new Scanner(System.in);
         BookManagement bookManagement = new BookManagement();
-        System.out.println("Enter Book id");
-        int bookId = scanner.nextInt();
-        bookManagement.removeBook();
+        bookManagement.remov();
         System.out.println("Thanks for reporting your issue has been sorted");
         System.out.println("Please visit again :)");
 
@@ -140,5 +139,11 @@ class ComplaintBox {
 
             }
         }
+    }
+    public void damagedBooks(){
+        Scanner scannerForInts = new Scanner(System.in);
+        Scanner scannerForStrings = new Scanner(System.in);
+        damagedBooks.add(new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt()));
+
     }
 }

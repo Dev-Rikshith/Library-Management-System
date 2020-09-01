@@ -108,6 +108,7 @@ public class BookManagement {
             System.out.println("2.Delete a Book");
             System.out.println("3.Get a Book");
             System.out.println("4.Display all Books");
+            System.out.println("Exit");
             System.out.println("Enter your choice");
             int choice1 = scanner.nextInt();
             switch (choice1) {
@@ -123,6 +124,8 @@ public class BookManagement {
                 case 4:
                     displayAllBooks();
                     break;
+                case 5:
+                    flag = false;
                 default:
                     System.out.println("Enter correct choice");
             }
