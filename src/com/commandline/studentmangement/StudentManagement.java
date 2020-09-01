@@ -7,6 +7,8 @@ package com.commandline.studentmangement;
  * returns or prints them to the screen
  */
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 import com.commandline.bookmanagement.Book;
@@ -147,12 +149,10 @@ public class StudentManagement {
             System.out.println("3.Get a Student");
             System.out.println("4. Display all Students");
             System.out.println("5.Manage Student Books");
-            //System.out.println("6.Get Student Details");
             System.out.println("6.Exit");
             System.out.println("Enter your choice");
             System.out.println("+++++++++++++++++++++++++++++++++++++++++");
             int choice3 = scanner.nextInt();
-//            StudentManagement studentManagement = new StudentManagement();
             switch (choice3) {
                 case 1:
                     addStudents();

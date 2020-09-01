@@ -20,6 +20,7 @@ public class FacultyDetails {
     protected String branch;
     protected int checkIn;
     protected int checkOut;
+    protected boolean inLibrary;
     protected ArrayList<Book> recommendedBooks;
     private int outStandingDues;
 
