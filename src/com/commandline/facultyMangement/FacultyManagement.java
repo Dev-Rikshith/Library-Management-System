@@ -91,7 +91,7 @@ public class FacultyManagement {
 
         return totalFacultyPresent;
     }
-    public void displayAllStudents(){
+    public void displayAllFaculty(){
         for (int i = 0; i < totalFaculty.length; i++) {
             if(totalFaculty[i] == null){
                 System.out.println("Slot Empty");
@@ -174,6 +174,7 @@ public class FacultyManagement {
             System.out.println("Sir/Madam Thanks for visiting");
         }
     }
+
 
 }
 

@@ -116,26 +116,18 @@ public class BookManagement {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the Book id to remove");
         int idToSearch = scanner.nextInt();
-        List<Book> listOfBooks = Arrays.asList(totalBooks.clone());
-        outer:
-        for (Book book : listOfBooks) {
-            if (idToSearch == book.id) {
-                break outer;
-            }
-            index++;
-        }
         //converts the list to array and then assigns it to the main array
         for (int i = 0; i < totalBooks.length; i++) {
-            ListIterator<Book> listIterator = listOfBooks.listIterator();
-            while (listIterator.hasNext()) {
-                totalBooks[i] = listIterator.next();
+            if(totalBooks[i]==null){
+                continue;
             }
-
-            break;
+            else if(idToSearch==totalBooks[i].id){
+                return totalBooks[i];
+            }
+            }
+        return null;
         }
-        scanner.close();
-        return listOfBooks.get(index);
-    }
+
 
     public int totalNumberOfBooks(){
         return totalBooks.length;
@@ -143,7 +135,7 @@ public class BookManagement {
         public void displayAllBooks(){
             for (int i = 0; i < totalBooks.length; i++) {
                 if(totalBooks[i] == null){
-                    System.out.println("Slot Empty");
+                    System.out.println("Book Slot  is Empty");
                 }else{
                     System.out.println(totalBooks[i]);
                 }

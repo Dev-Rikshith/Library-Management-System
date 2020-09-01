@@ -17,40 +17,7 @@ import java.util.Scanner;
 public class Main {
     public static boolean flag = true;
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while(flag){
-            System.out.println("1.Book Management\n" + "2.Faculty Management\n" +"3.Student Management\n" +"4.Complaint Box");
-            System.out.println("Enter your choice");
-            int choice = scanner.nextInt();
-            switch (choice){
-                case 1:
-                    System.out.println("1.Add a Book or Books");
-                    System.out.println("2.Delete a Book");
-                    System.out.println("3.Get a Book");
-                    System.out.println("4. Display all Books");
-                    System.out.println("Enter your choice");
-                    int choice1 = scanner.nextInt();
-                    BookManagement bookManagement = new BookManagement();
-                    switch (choice1){
-                        case 1: bookManagement.addBooks();
-                            break;
-                        case 2: bookManagement.removeBook();
-                            break;
-                        case 3:bookManagement.getBook();
-                            break;
-                        case 4:bookManagement.displayAllBooks();
-                            break;
-                        default:
-                            System.out.println("Enter correct choice");
-                    }
-
-            }
-
-        }
-
-
-
-
+        
     }
 }
 class ComplaintBox {
