@@ -12,127 +12,16 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean flag = true;
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        public static void main(String[] args){
+            Scanner scanner = new Scanner(System.in);
+            StudentManagement studentManagement = new StudentManagement();
         while (flag) {
             System.out.println("1.Book Management\n" + "2.Faculty Management\n" + "3.Student Management\n" + "4.Complaint Box\n" + "5.Exit");
             System.out.println("Enter your choice");
             int choice = scanner.nextInt();
             switch (choice) {
-                case 1:
-                    System.out.println("1.Add a Book or Books");
-                    System.out.println("2.Delete a Book");
-                    System.out.println("3.Get a Book");
-                    System.out.println("4.Display all Books");
-                    System.out.println("Enter your choice");
-                    int choice1 = scanner.nextInt();
-                    BookManagement bookManagement = new BookManagement();
-                    switch (choice1) {
-                        case 1:
-                            bookManagement.addBooks();
-                            break;
-                        case 2:
-                            bookManagement.removeBook();
-                            break;
-                        case 3:
-                            Book book1 = bookManagement.getBook();
-                            System.out.println(book1.toString());
-                        case 4:
-                            bookManagement.displayAllBooks();
-                            break;
-                        default:
-                            System.out.println("Enter correct choice");
-                    }
-                    break;
-                case 2:
-                    System.out.println("1.Add a Faculty or a Faculties");
-                    System.out.println("2.Delete a Faculty");
-                    System.out.println("3.Get a Faculty");
-                    System.out.println("4.Display all Faculty");
-                    System.out.println("5.Check-In faculty");
-                    System.out.println("6.Check-Out faculty");
-                    System.out.println("7.Exit");
-                    System.out.println("Enter your choice");
-                    int choice2 = scanner.nextInt();
-                    FacultyManagement facultyManagement = new FacultyManagement();
-                    switch (choice2) {
-                        case 1:
-                            facultyManagement.addFaculty();
-                            break;
-                        case 2:
-                            facultyManagement.removeFaculty();
-                            break;
-                        case 3:
-                            FacultyDetails facultyDetails = facultyManagement.getFaculty();
-                            System.out.println(facultyDetails.toString());
-                            break;
-                        case 4:
-                            facultyManagement.displayAllFaculty();
-                            break;
-                        case 5:
-                            facultyManagement.checkIn();
-                            break;
-                        case 6:
-                            facultyManagement.checkOut();
-                            break;
-                        case 7:
-                            flag = false;
-                            break;
-                        default:
-                            System.out.println("Enter correct choice");
-                    }
-                    break;
-                case 3: {
-                    System.out.println("+++++++++++++++++++++++++++++++++++++++");
-                    System.out.println("1.Add a Student or Students");
-                    System.out.println("2.Delete a Student");
-                    System.out.println("3.Get a Student");
-                    System.out.println("4. Display all Students");
-                    System.out.println("5.Manage Student Books");
-                    System.out.println("6.Get Student Details");
-                    System.out.println("7.Exit");
-                    System.out.println("Enter your choice");
-                    System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-                    int choice3 = scanner.nextInt();
-                    StudentManagement studentManagement = new StudentManagement();
-                    switch (choice3) {
-                        case 1:
-                            studentManagement.addStudents();
-                            break;
-                        case 2:
-                            studentManagement.removeStudents();
-                            break;
-                        case 3:
-                            StudentDetails studentDetails1 = studentManagement.getStudents();
-                            if(studentDetails1 == null){
-                                System.out.println("no student found");
-                            }else{
-                                System.out.println(studentDetails1);
-                            }
-                            break;
-                        case 4:
-                            studentManagement.displayAllStudents();
-                            break;
-                        case 5:
-                            studentManagement.manageBooks();
-                            break;
-                        case 6:
-                            StudentDetails studentDetails2 = studentManagement.getStudents();
-                            if(studentDetails2 == null){
-                                System.out.println("no student found");
-                            }else{
-                                System.out.println(studentDetails2);
-                            }
-                            break;
-                        case 7:
-                            flag = false;
-                            break;
-                        default:
-                            System.out.println("Enter correct choice");
-                    }
-                }
-                    break;
+                case 3: studentManagement.runner();
+                break;
                 case 4:
                     System.out.println("1.Register a Complaint");
                     System.out.println("2.Exit");
@@ -156,9 +45,35 @@ public class Main {
                     throw new IllegalArgumentException("Enter the correct choice");
             }
         }
-    }
-}
+            }
 
+
+        }
+//
+//                case 1:
+//                    System.out.println("1.Add a Book or Books");
+//                    System.out.println("2.Delete a Book");
+//                    System.out.println("3.Get a Book");
+//                    System.out.println("4.Display all Books");
+//                    System.out.println("Enter your choice");
+//                    int choice1 = scanner.nextInt();
+//                    BookManagement bookManagement = new BookManagement();
+//                    switch (choice1) {
+//                        case 1:
+//                            bookManagement.addBooks();
+//                            break;
+//                        case 2:
+//                            bookManagement.removeBook();
+//                            break;
+//                        case 3:
+//                            Book book1 = bookManagement.getBook();
+//                            System.out.println(book1.toString());
+//                        case 4:
+//                            bookManagement.displayAllBooks();
+//                            break;
+//                        default:
+//                            System.out.println("Enter correct choice");
+//                    }
 class ComplaintBox {
     public void bookDamage() {
         Scanner scanner = new Scanner(System.in);

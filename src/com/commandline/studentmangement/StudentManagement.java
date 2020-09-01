@@ -13,7 +13,7 @@ import com.commandline.bookmanagement.Book;
 
 public class StudentManagement {
 
-    protected StudentDetails[] totalStudents = new StudentDetails[50];
+    public StudentDetails[] totalStudents = new StudentDetails[2];
     protected int numberOfStudentsToAdd = 0;
     protected int totalStudentsPresent = 0;
 
@@ -50,12 +50,12 @@ public class StudentManagement {
         }
         System.arraycopy(arrayToAdd, 0, totalStudents, index, arrayToAdd.length);
         //sort the main array after every insert
-        sortTotalStudents();
+//        sortTotalStudents();
     }
 
-    public void sortTotalStudents() {
-        //TODO implement a sorting algorithm to sort the students
-    }
+//    public void sortTotalStudents() {
+//        //TODO implement a sorting algorithm to sort the students
+//    }
 
     public void removeStudents() {
         int i;
@@ -69,7 +69,6 @@ public class StudentManagement {
                 continue;
             }
             if (studentToDelete == totalStudents[i].id) {
-                System.out.println("++++++=");
                 studentDetails1 = totalStudents[i];
                 totalStudents[i] = null;
                 break;
@@ -85,7 +84,7 @@ public class StudentManagement {
 
     public StudentDetails getStudents() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the id of the student to retrieve/delete");
+        System.out.println("Enter the id of the student to retrieve");
         int studentToRetrieve = scanner.nextInt();
         //searches the element and records its index and then breaks out of the loop
         for (int i = 0; i < totalStudents.length; i++) {
@@ -137,6 +136,52 @@ public class StudentManagement {
             }
         }
         System.out.println("++++++++++++++++++++++++++++++++++");
+    }
+
+    public void runner() {
+        boolean flag = true;
+        while (flag) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
+            System.out.println("1.Add a Student or Students");
+            System.out.println("2.Delete a Student");
+            System.out.println("3.Get a Student");
+            System.out.println("4. Display all Students");
+            System.out.println("5.Manage Student Books");
+            //System.out.println("6.Get Student Details");
+            System.out.println("6.Exit");
+            System.out.println("Enter your choice");
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+            int choice3 = scanner.nextInt();
+//            StudentManagement studentManagement = new StudentManagement();
+            switch (choice3) {
+                case 1:
+                    addStudents();
+                    break;
+                case 2:
+                    removeStudents();
+                    break;
+                case 3:
+                    StudentDetails studentDetails1 = getStudents();
+                    if (studentDetails1 == null) {
+                        System.out.println("no student found");
+                    } else {
+                        System.out.println(studentDetails1);
+                    }
+                    break;
+                case 4:
+                    displayAllStudents();
+                    break;
+                case 5:
+                    manageBooks();
+                    break;
+                case 6:
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("Enter correct choice");
+            }
+        }
     }
 
 }
