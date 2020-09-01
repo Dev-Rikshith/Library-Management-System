@@ -3,6 +3,7 @@ package com.commandline.librarymanagement;
 //<<<<<<< HEAD
 //import com.com fr4rmandline.bookmanagement.Book;
 //=======
+
 import com.commandline.bookmanagement.Book;
 import com.commandline.bookmanagement.BookManagement;
 import com.commandline.facultyMangement.FacultyDetails;
@@ -16,56 +17,187 @@ import java.util.Scanner;
 
 public class Main {
     public static boolean flag = true;
+
     public static void main(String[] args) {
+<<<<<<< HEAD
         
+=======
+        Scanner scanner = new Scanner(System.in);
+        while (flag) {
+            System.out.println("1.Book Management\n" + "2.Faculty Management\n" + "3.Student Management\n" + "4.Complaint Box\n" + "5.Exit");
+            System.out.println("Enter your choice");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("1.Add a Book or Books");
+                    System.out.println("2.Delete a Book");
+                    System.out.println("3.Get a Book");
+                    System.out.println("4.Display all Books");
+                    System.out.println("Enter your choice");
+                    int choice1 = scanner.nextInt();
+                    BookManagement bookManagement = new BookManagement();
+                    switch (choice1) {
+                        case 1:
+                            bookManagement.addBooks();
+                            break;
+                        case 2:
+                            bookManagement.removeBook();
+                            break;
+                        case 3:
+                            bookManagement.getBook();
+                            break;
+                        case 4:
+                            bookManagement.displayAllBooks();
+                            break;
+                        default:
+                            System.out.println("Enter correct choice");
+                    }
+                case 2:
+                    System.out.println("1.Add a Faculty or a Faculties");
+                    System.out.println("2.Delete a Faculty");
+                    System.out.println("3.Get a Faculty");
+                    System.out.println("4.Display all Faculty");
+                    System.out.println("5.Check-In faculty");
+                    System.out.println("6.Check-Out faculty");
+                    System.out.println("7.Exit");
+                    System.out.println("Enter your choice");
+                    int choice2 = scanner.nextInt();
+                    FacultyManagement facultyManagement = new FacultyManagement();
+                    switch (choice2) {
+                        case 1:
+                            facultyManagement.addFaculty();
+                            break;
+                        case 2:
+                            facultyManagement.removeFaculty();
+                            break;
+                        case 3:
+                            facultyManagement.getFaculty();
+                            break;
+                        case 4:
+                            facultyManagement.displayAllFaculty();
+                            break;
+                        case 5:
+                            facultyManagement.checkIn();
+                            break;
+                        case 6:
+                            facultyManagement.checkOut();
+                            break;
+                        case 7:
+                            flag = false;
+                            break;
+                        default:
+                            System.out.println("Enter correct choice");
+                    }
+                case 3:
+                    System.out.println("1.Add a Student or Students");
+                    System.out.println("2.Delete a Student");
+                    System.out.println("3.Get a Student");
+                    System.out.println("4. Display all Students");
+                    System.out.println("5.Manage Student Books");
+                    System.out.println("6.Get Student Details");
+                    System.out.println("7.Exit");
+                    System.out.println("Enter your choice");
+                    int choice3 = scanner.nextInt();
+                    StudentManagement studentManagement = new StudentManagement();
+                    switch (choice3) {
+                        case 1:
+                            studentManagement.addStudents();
+                            break;
+                        case 2:
+                            studentManagement.removeStudents();
+                            break;
+                        case 3:
+                            studentManagement.getStudents();
+                            break;
+                        case 4:
+                            studentManagement.displayAllStudents();
+                            break;
+                        case 5:
+                            studentManagement.manageBooks();
+                        case 6:
+                            StudentDetails studentDetails1 = studentManagement.getStudents();
+                            studentDetails1.getDetails(studentDetails1);
+                        case 7:
+                            flag = false;
+                            break;
+                        default:
+                            System.out.println("Enter correct choice");
+                    }
+                case 4:
+                    System.out.println("1.Register a Complaint");
+                    System.out.println("2.Exit");
+                    int choice4 = scanner.nextInt();
+                    ComplaintBox complaintBox = new ComplaintBox();
+                    switch (choice4) {
+                        case 1:
+                            complaintBox.studentFacultyComplaint();
+                            break;
+                        case 2:
+                            flag = false;
+                            break;
+                        default:
+                            System.out.println("Enter correct choice");
+                    }
+                case 5:
+                    flag = false;
+                    break;
+                default:
+                    throw new IllegalArgumentException("Enter the correct choice");
+            }
+        }
     }
 }
+
 class ComplaintBox {
-   public void bookDamage(){
-       BookManagement bookManagement = new BookManagement();
-       bookManagement.searchBook();
-       bookManagement.removeBook();
-       System.out.println("Thanks for reporting your issue has been sorted");
-       System.out.println("Please visit again :)");
+    public void bookDamage() {
+        BookManagement bookManagement = new BookManagement();
+        bookManagement.searchBook();
+        bookManagement.removeBook();
+        System.out.println("Thanks for reporting your issue has been sorted");
+        System.out.println("Please visit again :)");
 
-   }
-   public void infrastructure(){
-       System.out.println("Thanks for providing your info we will surely improve our infrastructure ");
-       System.out.println("Please visit again :)");
-   }
-   public void others(){
-       Scanner scanner = new Scanner(System.in);
-       System.out.println("You can write down your complaint below");
-       String complaint = scanner.nextLine().toLowerCase();
-       System.out.println("Thanks for reporting your issue it will be sorted");
-       System.out.println("Please visit again :)");
-   }
+    }
 
-    public void studentFacultyComplaint(){
+    public void infrastructure() {
+        System.out.println("Thanks for providing your info we will surely improve our infrastructure ");
+        System.out.println("Please visit again :)");
+>>>>>>> 13c98e1d9c29f3beb48aa3c1f23543d96b278c37
+    }
+
+    public void others() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("You can write down your complaint below");
+        String complaint = scanner.nextLine().toLowerCase();
+        System.out.println("Thanks for reporting your issue it will be sorted");
+        System.out.println("Please visit again :)");
+    }
+
+    public void studentFacultyComplaint() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("If you have any complaints please press Y/N");
         String response = scanner.nextLine().toLowerCase();
-        if(response == "y"){
+        if (response == "y") {
             System.out.println("Please choose the complains from below options");
-            System.out.println("0.Book Damage");
-            System.out.println("1.Infrastructure of Library");
-            System.out.println("2.Others");
+            System.out.println("1.Book Damage");
+            System.out.println("2.Infrastructure of Library");
+            System.out.println("3.Others");
             int response1 = scanner.nextInt();
-            switch (response1){
-                case 0: bookDamage();
-                        break;
-                case 1: infrastructure();
-                        break;
-                case 2: others();
-                        break;
+            switch (response1) {
+                case 1:
+                    bookDamage();
+                    break;
+                case 2:
+                    infrastructure();
+                    break;
+                case 3:
+                    others();
+                    break;
                 default:
                     System.out.println("Wrong Option");
             }
-        }
-        else if(response == "n"){
+        } else if (response == "n") {
             System.out.println("Thanks for visiting :)");
-        }
-        else{
+        } else {
             System.out.println("Please enter Y/N");
         }
     }

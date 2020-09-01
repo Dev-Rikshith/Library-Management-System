@@ -14,11 +14,11 @@ public class BookManagement {
     private Book[] totalBooks = new Book[100];
     private int numberOfBookToAdd = 0;
     private int totalBookPresent = 0;
-    private  int id;
+    private int id;
 
-    public void initArray(){
+    public void initArray() {
         for (int i = 0; i < totalBooks.length; i++) {
-            totalBooks[i] = new Book(0,"","","",0);
+            totalBooks[i] = new Book(0, "", "", "", 0);
         }
     }
 
@@ -63,19 +63,19 @@ public class BookManagement {
             System.out.println(arrayToSort[i]);
         }
         Scanner scanner = new Scanner(System.in);
-        int low = 0, high = arrayToSort.length - 1, mid = (low+high)/2;
+        int low = 0, high = arrayToSort.length - 1, mid = (low + high) / 2;
         System.out.println("Enter id to search");
         id = scanner.nextInt();
         while (low <= high) {
-                if (id == arrayToSort[mid].id) {
-                    return arrayToSort[mid];
-                } else if(id < arrayToSort[mid].id){
-                    high = mid - 1;
-                }else{
-                    low = mid + 1;
-                }
-                mid = (low+high)/2;
+            if (id == arrayToSort[mid].id) {
+                return arrayToSort[mid];
+            } else if (id < arrayToSort[mid].id) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
             }
+            mid = (low + high) / 2;
+        }
 
         return null;
     }
@@ -129,9 +129,10 @@ public class BookManagement {
         }
 
 
-    public int totalNumberOfBooks(){
+    public int totalNumberOfBooks() {
         return totalBooks.length;
     }
+<<<<<<< HEAD
         public void displayAllBooks(){
             for (int i = 0; i < totalBooks.length; i++) {
                 if(totalBooks[i] == null){
@@ -139,8 +140,18 @@ public class BookManagement {
                 }else{
                     System.out.println(totalBooks[i]);
                 }
+=======
+
+    public void displayAllBooks() {
+        for (int i = 0; i < totalBooks.length; i++) {
+            if (totalBooks[i] == null) {
+                System.out.println("Slot Empty");
+            } else {
+                System.out.println(totalBooks[i]);
+>>>>>>> 13c98e1d9c29f3beb48aa3c1f23543d96b278c37
             }
         }
+    }
 
 }
 

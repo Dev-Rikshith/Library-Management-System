@@ -1,4 +1,5 @@
 package com.commandline.bookmanagement;
+
 /**
  * @author Anisha Shendkar
  * This class basically wraps all the book details into a object
