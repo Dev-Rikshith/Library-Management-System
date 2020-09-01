@@ -2,14 +2,64 @@ package com.commandline.facultyMangement;
 
 import com.commandline.bookmanagement.Book;
 import com.commandline.bookmanagement.Book;
+import com.commandline.studentmangement.StudentDetails;
 
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FacultyManagement {
 
     private int totalTime = 0;
-    private boolean yes;
+    private FacultyDetails[] totalFaculty = new FacultyDetails[25];
+    private int numberOfFacultyToAdd = 0;
+    private int totalFacultyPresent = 0;
+
+    public void addFaculty() {
+        Scanner scannerForInts = new Scanner(System.in);
+        Scanner scannerForStrings = new Scanner(System.in);
+        System.out.println("Enter number of faculty to add : ");
+        numberOfFacultyToAdd= scannerForInts.nextInt();
+        FacultyDetails[] facultyToAdd = new FacultyDetails[numberOfFacultyToAdd];
+        //Initializes the student objects by taking the inputs at the runtime
+        for (int i = 0; i < numberOfFacultyToAdd; i++) {
+            System.out.println("Enter the details of the faculty at position " + i);
+            facultyToAdd[i] = new FacultyDetails(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine());
+        }
+        totalFacultyPresent = totalFacultyPresent + numberOfFacultyToAdd;
+        //copies the objects of faculty to the main array
+        addToSystem(facultyToAdd);
+    }
+
+
+    private void addToSystem(FacultyDetails[] arrayToAdd) {
+        int index = 0;
+        outer:
+        for (int i = 0; i < totalFaculty.length; i++) {
+            if (totalFaculty[i] == null) {
+                break outer;
+            }
+            index++;
+        }
+        System.arraycopy(arrayToAdd, 0, totalFaculty, index, arrayToAdd.length);
+        //sort the main array after every insert
+        sortTotalFaculty();
+    }
+    public void sortTotalFaculty() {
+        //TODO implement a sorting algorithm to sort the faculty
+    }
+
+
+    public void displayAllStudents(){
+        for (int i = 0; i < totalFaculty.length; i++) {
+            if(totalFaculty[i] == null){
+                System.out.println("Slot Empty");
+            }else{
+                System.out.println(totalFaculty[i]);
+            }
+        }
+    }
+
 
     public void checkIn(FacultyDetails facultyDetails) {
         Scanner scanner = new Scanner(System.in);
@@ -79,10 +129,12 @@ public class FacultyManagement {
                 facultyMoney = facultyMoney - dues;
                 System.out.println("Sir/Madam thanks for clearing your total due,After paying you are left with a change of : Rs." + facultyMoney);
             }
-        } else {
+        }
+        else {
             System.out.println("Sir/Madam Thanks for visiting");
         }
     }
+
 }
 
 

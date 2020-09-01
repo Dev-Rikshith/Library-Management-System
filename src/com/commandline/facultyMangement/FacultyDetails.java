@@ -7,6 +7,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Sohan Kotha
+ * This class basically wraps all the Faculty details into a object
+ * and then initializes them with a constructor and then setup getters and setters
+ * for editing the private instance variables and prints the details of the Faculty
+ * to the screen or to a file using the toString method
+ */
+
+
 public class FacultyDetails {
     protected int id;
     protected String fullName;
