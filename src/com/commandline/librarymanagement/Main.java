@@ -1,11 +1,9 @@
 package com.commandline.librarymanagement;
 
-
 import com.commandline.bookmanagement.Book;
 import com.commandline.bookmanagement.BookManagement;
 import com.commandline.facultyMangement.FacultyDetails;
 import com.commandline.facultyMangement.FacultyManagement;
-//>>>>>>> 5ea20f9bc4acf9a8fbd71ecd6b99cd7f39c51311
 import com.commandline.studentmangement.StudentDetails;
 import com.commandline.studentmangement.StudentManagement;
 
@@ -163,8 +161,10 @@ public class Main {
 
 class ComplaintBox {
     public void bookDamage() {
+        Scanner scanner = new Scanner(System.in);
         BookManagement bookManagement = new BookManagement();
-        bookManagement.getBook();
+        System.out.println("Enter Book id");
+        int bookId = scanner.nextInt();
         bookManagement.removeBook();
         System.out.println("Thanks for reporting your issue has been sorted");
         System.out.println("Please visit again :)");
@@ -181,7 +181,8 @@ class ComplaintBox {
         Scanner scanner = new Scanner(System.in);
         System.out.println("You can write down your complaint below");
         String complaint = scanner.nextLine().toLowerCase();
-        System.out.println("Thanks for reporting your issue it will be sorted");
+        System.out.println("Your Complaint: "+complaint);
+        System.out.println("Thanks for reporting your issue we will surely try to sort it");
         System.out.println("Please visit again :)");
     }
 
@@ -189,7 +190,7 @@ class ComplaintBox {
         Scanner scanner = new Scanner(System.in);
         System.out.println("If you have any complaints please press Y/N");
         String response = scanner.nextLine().toLowerCase();
-        if (response == "y") {
+        if (response.equals("y")) {
             System.out.println("Please choose the complains from below options");
             System.out.println("1.Book Damage");
             System.out.println("2.Infrastructure of Library");
@@ -208,10 +209,39 @@ class ComplaintBox {
                 default:
                     System.out.println("Wrong Option");
             }
-        } else if (response == "n") {
+        }
+        else if (response.equals("n")) {
+            System.out.println("We are glad to know that");
             System.out.println("Thanks for visiting :)");
-        } else {
-            System.out.println("Please enter Y/N");
+        }
+        else {
+            System.out.println("Please enter Y/N carefully,this is a last chance");
+            String response1= scanner.nextLine().toLowerCase();
+            if (response1.equals("y")) {
+                System.out.println("Please choose the complains from below options");
+                System.out.println("1.Book Damage");
+                System.out.println("2.Infrastructure of Library");
+                System.out.println("3.Others");
+                int response2 = scanner.nextInt();
+                switch (response2) {
+                    case 1:
+                        bookDamage();
+                        break;
+                    case 2:
+                        infrastructure();
+                        break;
+                    case 3:
+                        others();
+                        break;
+                    default:
+                        System.out.println("Wrong Option");
+                }
+            }
+            else{
+                System.out.println("As you have given a wrong input 2nd time you need to repeat the process to register a complaint");
+                System.out.println("Thanks for visiting :)");
+
+            }
         }
     }
 }
