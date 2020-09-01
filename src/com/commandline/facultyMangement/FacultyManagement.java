@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class FacultyManagement {
 
     private int totalTime = 0;
-    private FacultyDetails[] totalFaculty = new FacultyDetails[25];
+    private FacultyDetails[] totalFaculty = new FacultyDetails[2];
     private int numberOfFacultyToAdd = 0;
     private int totalFacultyPresent = 0;
 
@@ -190,10 +190,7 @@ public class FacultyManagement {
     public void runner() {
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
         while(flag){
-        switch (choice) {
-            case 1:
                 System.out.println("1.Add a Faculty or a Faculties");
                 System.out.println("2.Delete a Faculty");
                 System.out.println("3.Get a Faculty");
@@ -202,9 +199,8 @@ public class FacultyManagement {
                 System.out.println("6.Check-Out faculty");
                 System.out.println("7.Exit");
                 System.out.println("Enter your choice");
-                int choice2 = scanner.nextInt();
-                FacultyManagement facultyManagement = new FacultyManagement();
-                switch (choice2) {
+                int choice = scanner.nextInt();
+                switch (choice) {
                     case 1:
                         addFaculty();
                         break;
@@ -212,7 +208,7 @@ public class FacultyManagement {
                         removeFaculty();
                         break;
                     case 3:
-                        FacultyDetails facultyDetails = facultyManagement.getFaculty();
+                        FacultyDetails facultyDetails = getFaculty();
                         System.out.println(facultyDetails.toString());
                         break;
                     case 4:
@@ -233,4 +229,3 @@ public class FacultyManagement {
         }
         }
     }
-}
