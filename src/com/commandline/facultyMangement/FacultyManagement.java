@@ -186,5 +186,51 @@ public class FacultyManagement {
             }
         }
 
-    }
 
+    public void runner() {
+        boolean flag = true;
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        while(flag){
+        switch (choice) {
+            case 1:
+                System.out.println("1.Add a Faculty or a Faculties");
+                System.out.println("2.Delete a Faculty");
+                System.out.println("3.Get a Faculty");
+                System.out.println("4.Display all Faculty");
+                System.out.println("5.Check-In faculty");
+                System.out.println("6.Check-Out faculty");
+                System.out.println("7.Exit");
+                System.out.println("Enter your choice");
+                int choice2 = scanner.nextInt();
+                FacultyManagement facultyManagement = new FacultyManagement();
+                switch (choice2) {
+                    case 1:
+                        addFaculty();
+                        break;
+                    case 2:
+                        removeFaculty();
+                        break;
+                    case 3:
+                        FacultyDetails facultyDetails = facultyManagement.getFaculty();
+                        System.out.println(facultyDetails.toString());
+                        break;
+                    case 4:
+                        displayAllFaculty();
+                        break;
+                    case 5:
+                        checkIn();
+                        break;
+                    case 6:
+                        checkOut();
+                        break;
+                    case 7:
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Enter correct choice");
+                }
+        }
+        }
+    }
+}
