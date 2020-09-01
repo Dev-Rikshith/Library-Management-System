@@ -11,6 +11,7 @@ import com.commandline.bookmanagement.Book;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class StudentDetails {
@@ -18,8 +19,8 @@ public class StudentDetails {
     protected int id;
     protected String fullName;
     protected String branch;
-    protected Book[] requestedBooks;
-    protected Book[] issuedBooks;
+    protected ArrayList<Book> requestedBooks;
+    protected ArrayList<Book> issuedBooks;
 
     public StudentDetails(int id, String fullName, String branch) {
         this.id = id;
