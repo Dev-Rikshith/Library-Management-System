@@ -19,9 +19,6 @@ public class Main {
     public static boolean flag = true;
 
     public static void main(String[] args) {
-<<<<<<< HEAD
-        
-=======
         Scanner scanner = new Scanner(System.in);
         while (flag) {
             System.out.println("1.Book Management\n" + "2.Faculty Management\n" + "3.Student Management\n" + "4.Complaint Box\n" + "5.Exit");
@@ -161,7 +158,7 @@ class ComplaintBox {
     public void infrastructure() {
         System.out.println("Thanks for providing your info we will surely improve our infrastructure ");
         System.out.println("Please visit again :)");
->>>>>>> 13c98e1d9c29f3beb48aa3c1f23543d96b278c37
+
     }
 
     public void others() {
