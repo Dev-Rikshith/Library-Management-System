@@ -1,14 +1,23 @@
 package com.commandline.librarymanagement;
 
+<<<<<<< HEAD
+import com.commandline.bookmanagement.Book;
+=======
 import com.commandline.facultyMangement.FacultyDetails;
 import com.commandline.facultyMangement.FacultyManagement;
+>>>>>>> 5ea20f9bc4acf9a8fbd71ecd6b99cd7f39c51311
 import com.commandline.studentmangement.StudentDetails;
 import com.commandline.studentmangement.StudentManagement;
+
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
         class ComplaintBox{
+            protected ArrayList<Book> recommendedBooks;
+            protected String studentComplaints;
+            Pr
 
 <<<<<<< HEAD
         FacultyManagement facultyManagement = new FacultyManagement();
