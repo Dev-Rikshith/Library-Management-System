@@ -114,31 +114,31 @@ public class FacultyManagement {
 
         public void checkIn () {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter the faculty id to check-in");
             FacultyDetails facultyDetails1 = getFaculty();
-            System.out.println("Enter the time when Faculty checkedIn in hours : ");
+            System.out.println("Enter the time when Faculty checkedIn in hours and minutes : ");
             int timeHours = scanner.nextInt();
-            System.out.println("Enter the time when Faculty checkedIn in minutes :  ");
             int timeMinutes = scanner.nextInt();
             timeHours *= 60;
-            int time = timeHours + timeMinutes;
-            facultyDetails1.setCheckIn(time);
-            scanner.close();
+            int totalTime = timeHours + timeMinutes;
+            facultyDetails1.setCheckIn(totalTime);
+            facultyDetails1.inLibrary = true;
+            System.out.println("Check In successful");
         }
 
         public void checkOut () {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Enter the faculty id to check-in");
             FacultyDetails facultyDetails1 = getFaculty();
-            System.out.println("Enter the time when Faculty checkedOut in hours : ");
-            int timeHours = scanner.nextInt();
-            System.out.println("Enter the time when Faculty checkedOut in minutes :  ");
-            int timeMinutes = scanner.nextInt();
-            timeHours *= 60;
-            int time = timeHours + timeMinutes;
-            facultyDetails1.setCheckOut(time);
-            scanner.close();
-            completeCheckout(facultyDetails1);
+            if(facultyDetails1.inLibrary){
+                System.out.println("Enter the time when Faculty checkedOut in hours and minutes: ");
+                int timeHours = scanner.nextInt();
+                int timeMinutes = scanner.nextInt();
+                timeHours *= 60;
+                int time = timeHours + timeMinutes;
+                facultyDetails1.setCheckOut(time);
+                completeCheckout(facultyDetails1);
+            }else{
+                System.out.println("Improper Checkout");
+            }
         }
 
         public int computeTotalTime ( int startTime, int endTime){
@@ -146,7 +146,7 @@ public class FacultyManagement {
         }
 
         public int computePenalty (FacultyDetails facultyDetails){
-            totalTime = computeTotalTime(facultyDetails.getCheckIn(), facultyDetails.getCheckOut());
+            int totalTime = computeTotalTime(facultyDetails.getCheckIn(), facultyDetails.getCheckOut());
             if (totalTime <= 30) {
                 facultyDetails.setCheckIn(0);
                 facultyDetails.setCheckOut(0);
@@ -160,31 +160,41 @@ public class FacultyManagement {
 
         public void completeCheckout (FacultyDetails facultyDetails){
             Scanner scanner = new Scanner(System.in);
+            Scanner scanner1 = new Scanner(System.in);
             int totalPenalty = computePenalty(facultyDetails);
             int dues = facultyDetails.getOutStandingDues();
             dues = dues + totalPenalty;
             facultyDetails.setOutStandingDues(dues);
             System.out.println("Sir/Madam do you want to recommend any books to the students");
-            facultyDetails.recommendedBooks.add(new Book(scanner.nextInt(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextInt()));
-            payDues(dues, facultyDetails);
+            String option = scanner1.nextLine();
+            option = option.toLowerCase();
+            if(option.equals("y")){
+                facultyDetails.recommendedBooks.add(new Book(scanner.nextInt(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextInt()));
+                payDues(dues, facultyDetails);
+            }else if(option.equals("n")){
+                payDues(dues, facultyDetails);
+            }else{
+                System.out.println("Please repeat the process to complete the checkout");
+            }
+            facultyDetails.inLibrary = false;
         }
 
         public void payDues ( int dues, FacultyDetails facultyDetails){
             Scanner scanner = new Scanner(System.in);
+            Scanner scanner1 = new Scanner(System.in);
             System.out.println("Sir/Madam you have an OutstandingDue of : Rs." + facultyDetails.getOutStandingDues() + " would you like to pay this amount?");
             System.out.println("Press Y for yes and N for no");
-            String response = scanner.nextLine().toLowerCase();
-            if (response == "y") {
+            String response = scanner1.nextLine().toLowerCase();
+            if (response.equals("y")) {
                 System.out.println("How much amount would you like to pay Sir/Madam");
                 int facultyMoney = scanner.nextInt();
                 if (facultyMoney < dues) {
-                    dues = facultyMoney - dues;
+                    dues = dues - facultyMoney;
                     System.out.println("Sir/Madam after paying your dues you are still left with a due of : Rs." + dues);
-                    scanner.close();
                 } else if (facultyMoney == dues) {
                     dues = 0;
                     System.out.println("Sir/Madam thanks for clearing your total due");
-                } else {
+                } else if(facultyMoney > dues){
                     facultyMoney = facultyMoney - dues;
                     System.out.println("Sir/Madam thanks for clearing your total due,After paying you are left with a change of : Rs." + facultyMoney);
                 }
