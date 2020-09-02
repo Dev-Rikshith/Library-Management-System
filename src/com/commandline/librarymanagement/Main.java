@@ -45,6 +45,7 @@ public class Main {
                             break;
                         default:
                             System.out.println("Enter correct choice");
+                            break;
                     }
                 case 2:
                     System.out.println("1.Add a Faculty or a Faculties");
@@ -67,6 +68,7 @@ public class Main {
                         case 3:
                             FacultyDetails facultyDetails = facultyManagement.getFaculty();
                             System.out.println(facultyDetails.toString());
+
                             break;
                         case 4:
                             facultyManagement.displayAllFaculty();
