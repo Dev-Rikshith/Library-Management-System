@@ -8,12 +8,13 @@ package com.commandline.bookmanagement;
 
 //import jdk.internal.util.xml.impl.Pair;
 
+import com.commandline.facultyMangement.FacultyDetails;
 import com.commandline.studentmangement.StudentDetails;
 
 import java.util.*;
 
 public class BookManagement {
-    private Book[] totalBooks = new Book[100];
+    private Book[] totalBooks = new Book[2];
     private int numberOfBookToAdd = 0;
     private int totalBookPresent = 0;
     private int id;
@@ -27,7 +28,13 @@ public class BookManagement {
         Book[] bookToAdd = new Book[numberOfBookToAdd];
         //Initializes the Book objects by taking the inputs at the runtime
         for (int i = 0; i < numberOfBookToAdd; i++) {
-            System.out.println("Enter the details of the book at position " + i);
+            System.out.println("Enter the details of the book at position " + (i+1));
+            System.out.println("Enter the Book Details in the given way below");
+            System.out.println("1.Book Id");
+            System.out.println("2.Book Name");
+            System.out.println("3.Book Author");
+            System.out.println("4.Book Review");
+            System.out.println("5.Book Count");
             bookToAdd[i] = new Book(scannerForInts.nextInt(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForStrings.nextLine(), scannerForInts.nextInt());
         }
         totalBookPresent = totalBookPresent + numberOfBookToAdd;
@@ -45,13 +52,8 @@ public class BookManagement {
             index++;
         }
         System.arraycopy(arrayToAdd, 0, totalBooks, index, arrayToAdd.length);
-        //sort the main array after every insert
-        sortTotalBook();
     }
 
-    public void sortTotalBook() {
-        //TODO implement a sorting algorithm to sort the Book
-    }
 
     public void removeBook() {
         Book book1 = null;
@@ -75,36 +77,71 @@ public class BookManagement {
     public Book getBook() {
         int index = -1;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
         System.out.println("Enter the Book id to remove");
         int idToSearch = scanner.nextInt();
         //converts the list to array and then assigns it to the main array
         for (int i = 0; i < totalBooks.length; i++) {
-            if(totalBooks[i]==null){
+            if (totalBooks[i] == null) {
                 continue;
-            }
-            else if(idToSearch==totalBooks[i].id){
+            } else if (idToSearch == totalBooks[i].id) {
                 return totalBooks[i];
             }
-            }
-        return null;
         }
+        return null;
+    }
 
 
     public int totalNumberOfBooks() {
         return totalBooks.length;
     }
 
-        public void displayAllBooks(){
-            for (int i = 0; i < totalBooks.length; i++) {
-                if(totalBooks[i] == null){
-                    System.out.println("Book Slot  is Empty");
-                }else{
-                    System.out.println(totalBooks[i]);
+    public void displayAllBooks() {
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
+        for (int i = 0; i < totalBooks.length; i++) {
+            if (totalBooks[i] == null) {
+                System.out.println("Book Slot  is Empty");
+            } else {
+                System.out.println(totalBooks[i]);
 
             }
         }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++");
     }
 
+    public void runner() {
+        boolean flag = true;
+        Scanner scanner = new Scanner(System.in);
+        while (flag) {
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
+            System.out.println("1.Add a Book or Books");
+            System.out.println("2.Delete a Book");
+            System.out.println("3.Get a Book");
+            System.out.println("4.Display all Books");
+            System.out.println("5.Exit");
+            System.out.println("+++++++++++++++++++++++++++++++++++++++");
+            int choice1 = scanner.nextInt();
+            switch (choice1) {
+                case 1:
+                    addBooks();
+                    break;
+                case 2:
+                    removeBook();
+                    break;
+                case 3:
+                    Book book1 = getBook();
+                    System.out.println(book1.toString());
+                case 4:
+                    displayAllBooks();
+                    break;
+                case 5:
+                    flag = false;
+                default:
+                    System.out.println("Enter correct choice");
+            }
+
+        }
+    }
 }
 
 

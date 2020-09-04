@@ -60,36 +60,4 @@ public class StudentDetails {
                 ", branch='" + branch + '\'' +
                 '}';
     }
-
-    public void getDetails(StudentDetails studentDetails) {
-        System.out.println(studentDetails.toString());
-        System.out.println("The student has the following outstanding requests :");
-        for (Book book : requestedBooks) {
-            System.out.println(book);
-        }
-        System.out.println("The student has the following outstanding issues :");
-        for (Book book : issuedBooks) {
-            System.out.println(book);
-        }
-    }
-
-    public void getReport(StudentDetails studentDetails) throws IOException {
-        String reportToGet = studentDetails.getFullName();
-        FileWriter fileWriter = new FileWriter(reportToGet); //Initializes the object with the name
-        //writes all the student details to the file created
-        fileWriter.write(studentDetails.toString());
-        int pos = 0;
-        fileWriter.write("The student has the following outstanding requests :");
-        for (Book book : requestedBooks) {
-            pos++;
-            fileWriter.write(pos + " . " + book);
-        }
-        pos = 0;
-        fileWriter.write("The student has the following outstanding issues :");
-        for (Book book : issuedBooks) {
-            pos++;
-            fileWriter.write(pos + " . " + book);
-        }
-        fileWriter.close();
-    }
 }
